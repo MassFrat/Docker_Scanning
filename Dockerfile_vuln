@@ -1,0 +1,8 @@
+FROM ubuntu:latest
+RUN apt-get update && apt-get install -y python3.8
+WORKDIR /
+COPY . /
+EXPOSE 22 80 443
+#CMD ["/bin/bash"] #an app is not needed  
+#CMD ["python3", "app.py"] #the app.py seems too complex
+

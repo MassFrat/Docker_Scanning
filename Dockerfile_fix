@@ -1,0 +1,10 @@
+FROM ubuntu:24.04
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends python3 curl wget net-tools \
+    && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+COPY . /app
+EXPOSE 80 443
+#CMD ["/bin/bash"] #an app is not needed  
+#CMD ["python3", "app.py"] #the app.py seems too complex
+
