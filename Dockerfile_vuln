@@ -1,8 +1,6 @@
-FROM ubuntu:latest
-RUN apt-get update && apt-get install -y python3.8
-WORKDIR /
-COPY . /
-EXPOSE 22 80 443
-#CMD ["/bin/bash"] #an app is not needed  
-#CMD ["python3", "app.py"] #the app.py seems too complex
-
+FROM ubuntu:latest # unpinned base image unstable, use a specific base image ubuntu:24.04 
+RUN apt-get update && apt-get install -y python3.8 # EOL Python version, use Python 3.12
+WORKDIR / # root directory can amplify a vulnerability, use WORKDIR /app (add a non-root user)
+COPY . / # copy what's needed, Copy . /app
+EXPOSE 22 80 443 # remove 22 as it exposes SSH port, which can be a major security risk
+CMD ["/bin/bash"] # unsure about this one
