@@ -7,4 +7,4 @@ WORKDIR /app
 COPY . /app
 USER appuser
 EXPOSE 80 443
-#CMD ["/bin/bash"] #unsure about this one 
+#CMD ["python3", "app.py"] 
