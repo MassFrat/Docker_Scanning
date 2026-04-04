@@ -3,4 +3,4 @@ RUN apt-get update && apt-get install -y python3.8 # EOL Python version, use Pyt
 WORKDIR / # root directory can amplify a vulnerability, use WORKDIR /app (add a non-root user)
 COPY . / # copy what's needed, Copy . /app
 EXPOSE 22 80 443 # remove 22 as it exposes SSH port, which can be a major security risk
-CMD ["/bin/bash"] # unsure about this one
+CMD ["/bin/bash"] # interactive shell can be exposed and no production purpose
